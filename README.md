@@ -48,13 +48,13 @@
 # 5. 实用小工具
 ## 桌面图标小箭头去除软件
   
-[下载地址](https://wwi.lanzoup.com/b00h2jb2h) 密码:密码:epu7
+[下载地址](https://wwi.lanzoup.com/b00h2jb2h) 密码:epu7
 
 - 分享2个都可以使用的电脑桌面图标小箭头管理软件，可以一键去除或者恢复图标小箭头，对于桌面图标小箭头有强迫症的可以试试。
 ****
 # 6. 图片处理软件
 ## 美图秀秀批处理软件
   
-[下载地址](https://wwi.lanzoup.com/ibvUOts6syf) 密码:密码:9quk
+[下载地址](https://wwi.lanzoup.com/ibvUOts6syf) 密码:9quk
 
 - 一个绿色单文件，可以对多个图片进行批处理，比如添加水印等动作。
