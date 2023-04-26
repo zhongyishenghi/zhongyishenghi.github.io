@@ -41,6 +41,6 @@
 # 3. 解压缩软件
 ## winrar去广告版
   
-[下载地址|密码:dmsj](https://wwi.lanzoup.com/b0dwde70f)
+[下载地址](https://wwi.lanzoup.com/b0dwde70f) 密码:dmsj
 
 - WinRAR破解版是一款功能强大的文件压缩解压缩工具。WinRAR64位支持目前绝大多数的压缩文件格式，Winrar包含强力压缩、分卷、加密和自解压模块，简单易用。Winrar的优点在于压缩率大速度快，它能备份你的数据，减少你的E-mail 附件的大小，解压缩从 Internet 上下载的RAR、ZIP和其他格式的压缩文件，并能创建RAR和ZIP格式的压缩文件。。
