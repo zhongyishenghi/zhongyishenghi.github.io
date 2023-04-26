@@ -5,6 +5,7 @@
 ##  Microsoft Edge
 
 [官方网站](https://www.microsoft.com/zh-cn/edge)
+
 Microsoft edge作为目前Windows系统默认web浏览器，享有更多隐私，同时提高工作效率。Microsoft Edge浏览器可在Windows7、Windows8、Windows8.1、Windows10等设备上使用，可自动同步您的密码、收藏夹和设置。Microsoft Edge 采用与 Chrome 相同的技术，具有更多内置功能（如“启动增强”和“睡眠标签页”），这些功能经过优化，非常适合在 Windows 中使用，可增强您的浏览体验，并提供一流的性能和速度。
 
 ## Chrome
