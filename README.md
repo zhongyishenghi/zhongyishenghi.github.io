@@ -7,13 +7,13 @@
 [官方网站](https://www.microsoft.com/zh-cn/edge)
 
 - Microsoft edge俗称微软浏览器，作为目前Windows系统默认web浏览器，享有更多隐私，同时提高工作效率。Microsoft Edge浏览器可在Windows7、Windows8、Windows8.1、Windows10等设备上使用，可自动同步您的密码、收藏夹和设置。Microsoft Edge 采用与 Chrome 相同的技术，具有更多内置功能（如“启动增强”和“睡眠标签页”），这些功能经过优化，非常适合在 Windows 中使用，可增强您的浏览体验，并提供一流的性能和速度。
-
+------------
 ## Google Chrome
 
 [官方网站](https://www.google.cn/chrome/)
 
 - Google Chrome俗称谷歌浏览器， 是由 Google 打造的多功能高性能网页浏览器，是目前最为主流的一种浏览器。[Chromium](https://www.chromium.org/) 是其开源内核，也是为众多浏览器所采用的的内核。总之就非常好用就是了，由于众所周知的原因，Chrome的拓展插件商店在大陆无法舒适地访问，因此我个人十分推荐微软基于 Chromium 内核开发的 [Edge 浏览器](https://www.microsoft.com/zh-cn/edge?r=1)。
-
+------------
 ## Mozilla Firefox
 
 [官方网站](https://www.mozilla.org/zh-CN/firefox/new/)
