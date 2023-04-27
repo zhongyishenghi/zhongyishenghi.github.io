@@ -65,4 +65,4 @@
 [下载地址](https://www.123pan.com/s/dtTeVv-bTwGh.html) 提取码:ZSWU
 
 - 中望CAD2014是一款运行又快又稳定的CAD绘图工具，兼容最新DWG文件格式，自带智能功能系列，内置：智能语音、手势精灵等，相比AutoCAD软件更加的轻松，简化版的aytocad，正是CAD正版化的首选解决方案。
-- 安装方法：解压后点击文件夹ZWCAD+2014CHS文件夹里面的setup安装文件，开始安装，建议默认路径，安装完成以后，将patch文件夹里面的ZWCAD文件拉到安装路径ZWCAD+2014文件夹下，覆盖掉源文件即破解成功。
+- 安装方法：解压后点击文件夹ZWCAD+2014CHS文件夹里面的setup安装文件，开始安装，建议默认路径，安装完成以后，将patch文件夹里面的ZWCAD文件拉到安装路径ZWCAD+2014文件夹下，安装路径默认为【C:Program FilesZWCAD+ 2014】，覆盖掉源文件即破解成功。
