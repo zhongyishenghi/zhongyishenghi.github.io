@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Welcome to Gridea Pro">
+  <title>归档 | Gridea Pro</title>
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="icon" href="/favicon.ico">
+<meta name="description" content="Welcome to Gridea Pro">
+</head>
+<body class="fresh-blog">
+  <header class="site-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <a href="https://https://zhongyishenghi.github.io" class="site-logo">
+        
+        <span class="site-name">Gridea Pro</span>
+      </a>
+    </div>
+
+    <nav class="header-nav">
+      
+      
+      <a class="nav-link" href="/">首页</a>
+      
+      <a class="nav-link" href="/post">博客</a>
+      
+      <a class="nav-link" href="/memos">闪念</a>
+      
+      <a class="nav-link" href="/archives">归档</a>
+      
+      <a class="nav-link" href="/tags">标签</a>
+      
+      <a class="nav-link" href="/links">友链</a>
+      
+      <a class="nav-link" href="/post/about">关于</a>
+      
+      
+    </nav>
+
+    <div class="header-right">
+      
+      <button class="search-btn" id="searchBtn" aria-label="搜索">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+      
+    </div>
+  </div>
+</header>
+
+
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-modal">
+    <input type="text" class="search-input" id="searchInput" placeholder="搜索文章...">
+    <div class="search-results" id="searchResults"></div>
+    <button class="search-close" id="searchClose">×</button>
+  </div>
+</div>
+
+
+<script>
+(function(){
+  var overlay = document.getElementById('searchOverlay');
+  var btn = document.getElementById('searchBtn');
+  var closeBtn = document.getElementById('searchClose');
+  var input = document.getElementById('searchInput');
+
+  if (!overlay || !btn || !closeBtn || !input) return;
+
+  btn.addEventListener('click', function(){
+    overlay.classList.add('active');
+    input.focus();
+  });
+
+  closeBtn.addEventListener('click', function(){
+    overlay.classList.remove('active');
+  });
+
+  overlay.addEventListener('click', function(e){
+    if (e.target === overlay) {
+      overlay.classList.remove('active');
+    }
+  });
+
+  var lastQuery = '';
+  input.addEventListener('input', function(){
+    var query = input.value.trim();
+    if (query === lastQuery) return;
+    lastQuery = query;
+    var results = document.getElementById('searchResults');
+    if (!query) {
+      results.innerHTML = '';
+      return;
+    }
+    results.innerHTML = '<p class="search-hint">正在加载...</p>';
+    fetch('/api/search.json')
+      .then(function(r){ return r.json(); })
+      .then(function(posts){
+        var matched = posts.filter(function(p){
+          return p.title.indexOf(query) > -1 || (p.content && p.content.indexOf(query) > -1);
+        });
+        if (matched.length === 0) {
+          results.innerHTML = '<p class="search-hint">没有找到相关文章</p>';
+          return;
+        }
+        results.innerHTML = matched.slice(0, 10).map(function(p){
+          var excerpt = p.content ? p.content.replace(/<[^>]+>/g, '').substring(0, 100) + '...' : '';
+          return '<a href="' + p.link + '" class="search-result-item"><h3>' + p.title + '</h3><p>' + excerpt + '</p></a>';
+        }).join('');
+      })
+      .catch(function(){
+        results.innerHTML = '<p class="search-hint">搜索加载失败</p>';
+      });
+  });
+})();
+</script>
+
+
+  <main class="main-container">
+    <div class="content-wrapper">
+      <div class="main-content">
+        
+<div class="archives-page">
+  <h1 class="page-title">归档</h1>
+  <div class="archives-list">
+    
+    
+    <article class="archive-item">
+      <time class="archive-date">2026-04-18T21:20:46+08:00</time>
+      <a href="/post/SFctZm/" class="archive-title">只因为有人站在鸭绿江边，</a>
+    </article>
+    
+    <article class="archive-item">
+      <time class="archive-date">2026-04-18T21:11:57+08:00</time>
+      <a href="/post/RuDtCV/" class="archive-title">只因为有人站在鸭绿江边，</a>
+    </article>
+    
+    <article class="archive-item">
+      <time class="archive-date">2026-04-18T21:11:31+08:00</time>
+      <a href="/post/uz9SqW/" class="archive-title">会计师大会</a>
+    </article>
+    
+    <article class="archive-item">
+      <time class="archive-date">2026-04-18T21:11:03+08:00</time>
+      <a href="/post/2JySRL/" class="archive-title">人们从很早开始就不</a>
+    </article>
+    
+    <article class="archive-item">
+      <time class="archive-date">2026-04-18T07:08:45+08:00</time>
+      <a href="/post/quick-start/" class="archive-title">Gridea Pro 完全上手指南 —— 从写作到发布，一篇搞定</a>
+    </article>
+    
+    <article class="archive-item">
+      <time class="archive-date">2026-04-18T07:07:45+08:00</time>
+      <a href="/post/why-we-write/" class="archive-title">都 2026 年了，我们为什么还要写博客</a>
+    </article>
+    
+    <article class="archive-item">
+      <time class="archive-date">2026-04-18T07:06:45+08:00</time>
+      <a href="/post/indie-blog-is-not-dead/" class="archive-title">独立博客没有死，正在死的是平庸的博客</a>
+    </article>
+    
+    <article class="archive-item">
+      <time class="archive-date">2026-04-18T07:05:45+08:00</time>
+      <a href="/post/why-i-revived-gridea/" class="archive-title">我为什么复活了 Gridea —— 每个想写点什么的人，都值得一个更简单的开始</a>
+    </article>
+    
+    
+  </div>
+</div>
+
+      </div>
+      <aside class="sidebar">
+        <div class="sidebar-inner">
+  
+
+  <div class="sidebar-social">
+    
+    
+    
+  </div>
+
+  
+  <div class="sidebar-section">
+    <h4 class="sidebar-title">最新文章</h4>
+    <ul class="recent-posts-list">
+      
+      
+      <li class="recent-post-item">
+        <a href="/post/SFctZm/">只因为有人站在鸭绿江边，</a>
+      </li>
+      
+      
+      
+      <li class="recent-post-item">
+        <a href="/post/RuDtCV/">只因为有人站在鸭绿江边，</a>
+      </li>
+      
+      
+      
+      <li class="recent-post-item">
+        <a href="/post/uz9SqW/">会计师大会</a>
+      </li>
+      
+      
+      
+      <li class="recent-post-item">
+        <a href="/post/2JySRL/">人们从很早开始就不</a>
+      </li>
+      
+      
+      
+      <li class="recent-post-item">
+        <a href="/post/quick-start/">Gridea Pro 完全上手指南 —— 从写作到发布，一篇搞定</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  
+
+  
+  <div class="sidebar-section">
+    <h4 class="sidebar-title">标签云</h4>
+    <div class="tag-cloud">
+      
+      <a href="/tag/gridea/" class="tag-item">Gridea</a>
+      
+      <a href="/tag/gridea-pro/" class="tag-item">Gridea Pro</a>
+      
+      <a href="/tag/getting-started/" class="tag-item">入门</a>
+      
+    </div>
+  </div>
+  
+</div>
+
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-info">
+      <p>&copy; 2026 Gridea Pro. All rights reserved.</p>
+      <p>Powered by <a href="https://www.gridea.pro" target="_blank">Gridea Pro</a></p>
+    </div>
+  </div>
+</footer>
+
+
+  
+</body>
+</html>

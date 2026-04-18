@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Welcome to Gridea Pro">
+  <title>Gridea Pro | Gridea Pro</title>
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="icon" href="/favicon.ico">
+<meta name="description" content="Welcome to Gridea Pro">
+</head>
+<body class="fresh-blog">
+  <header class="site-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <a href="https://https://zhongyishenghi.github.io" class="site-logo">
+        
+        <span class="site-name">Gridea Pro</span>
+      </a>
+    </div>
+
+    <nav class="header-nav">
+      
+      
+      <a class="nav-link" href="/">首页</a>
+      
+      <a class="nav-link" href="/post">博客</a>
+      
+      <a class="nav-link" href="/memos">闪念</a>
+      
+      <a class="nav-link" href="/archives">归档</a>
+      
+      <a class="nav-link" href="/tags">标签</a>
+      
+      <a class="nav-link" href="/links">友链</a>
+      
+      <a class="nav-link" href="/post/about">关于</a>
+      
+      
+    </nav>
+
+    <div class="header-right">
+      
+      <button class="search-btn" id="searchBtn" aria-label="搜索">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+      
+    </div>
+  </div>
+</header>
+
+
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-modal">
+    <input type="text" class="search-input" id="searchInput" placeholder="搜索文章...">
+    <div class="search-results" id="searchResults"></div>
+    <button class="search-close" id="searchClose">×</button>
+  </div>
+</div>
+
+
+<script>
+(function(){
+  var overlay = document.getElementById('searchOverlay');
+  var btn = document.getElementById('searchBtn');
+  var closeBtn = document.getElementById('searchClose');
+  var input = document.getElementById('searchInput');
+
+  if (!overlay || !btn || !closeBtn || !input) return;
+
+  btn.addEventListener('click', function(){
+    overlay.classList.add('active');
+    input.focus();
+  });
+
+  closeBtn.addEventListener('click', function(){
+    overlay.classList.remove('active');
+  });
+
+  overlay.addEventListener('click', function(e){
+    if (e.target === overlay) {
+      overlay.classList.remove('active');
+    }
+  });
+
+  var lastQuery = '';
+  input.addEventListener('input', function(){
+    var query = input.value.trim();
+    if (query === lastQuery) return;
+    lastQuery = query;
+    var results = document.getElementById('searchResults');
+    if (!query) {
+      results.innerHTML = '';
+      return;
+    }
+    results.innerHTML = '<p class="search-hint">正在加载...</p>';
+    fetch('/api/search.json')
+      .then(function(r){ return r.json(); })
+      .then(function(posts){
+        var matched = posts.filter(function(p){
+          return p.title.indexOf(query) > -1 || (p.content && p.content.indexOf(query) > -1);
+        });
+        if (matched.length === 0) {
+          results.innerHTML = '<p class="search-hint">没有找到相关文章</p>';
+          return;
+        }
+        results.innerHTML = matched.slice(0, 10).map(function(p){
+          var excerpt = p.content ? p.content.replace(/<[^>]+>/g, '').substring(0, 100) + '...' : '';
+          return '<a href="' + p.link + '" class="search-result-item"><h3>' + p.title + '</h3><p>' + excerpt + '</p></a>';
+        }).join('');
+      })
+      .catch(function(){
+        results.innerHTML = '<p class="search-hint">搜索加载失败</p>';
+      });
+  });
+})();
+</script>
+
+
+  <main class="main-container">
+    <div class="content-wrapper">
+      <div class="main-content">
+        
+<div class="tag-page">
+  <h1 class="page-title">标签：Gridea Pro</h1>
+  <div class="posts-list">
+    
+    
+    <article class="post-card">
+  
+  <div class="post-card-content">
+    <h2 class="post-card-title">
+      <a href="/post/quick-start/">Gridea Pro 完全上手指南 —— 从写作到发布，一篇搞定</a>
+    </h2>
+    <div class="post-card-meta">
+      <time class="post-date">2026-04-18T07:08:45+08:00</time>
+      
+      <span class="post-meta-sep">·</span>
+      
+      <a href="/tag/gridea-pro/" class="post-tag">Gridea Pro</a>
+      
+      <a href="/tag/getting-started/" class="post-tag">入门</a>
+      
+      
+    </div>
+    
+    <p class="post-card-excerpt">&lt;p&gt;这篇指南会带你一步一步熟悉 Gridea Pro 的界面和操作，从写第一篇文章到把博客发布到互联网上。&lt;/p&gt;
+</p>
+    
+  </div>
+</article>
+
+    
+    <article class="post-card">
+  
+  <div class="post-card-content">
+    <h2 class="post-card-title">
+      <a href="/post/why-we-write/">都 2026 年了，我们为什么还要写博客</a>
+    </h2>
+    <div class="post-card-meta">
+      <time class="post-date">2026-04-18T07:07:45+08:00</time>
+      
+      <span class="post-meta-sep">·</span>
+      
+      <a href="/tag/gridea-pro/" class="post-tag">Gridea Pro</a>
+      
+      
+    </div>
+    
+    <p class="post-card-excerpt">&lt;p&gt;你有没有过这样的时刻——&lt;/p&gt;
+&lt;p&gt;某天深夜，突然想起一个很久没联系的人，想跟他说点什么，却发现你们之间已经隔了太多年的空白，连开口的理由都找不到了。&lt;/p&gt;
+</p>
+    
+  </div>
+</article>
+
+    
+    <article class="post-card">
+  
+  <div class="post-card-content">
+    <h2 class="post-card-title">
+      <a href="/post/indie-blog-is-not-dead/">独立博客没有死，正在死的是平庸的博客</a>
+    </h2>
+    <div class="post-card-meta">
+      <time class="post-date">2026-04-18T07:06:45+08:00</time>
+      
+      <span class="post-meta-sep">·</span>
+      
+      <a href="/tag/gridea-pro/" class="post-tag">Gridea Pro</a>
+      
+      
+    </div>
+    
+    <p class="post-card-excerpt">&lt;p&gt;你可能听过很多次这样的说法：&amp;ldquo;博客已经过时了&amp;rdquo;、&amp;ldquo;现在谁还看博客&amp;rdquo;、&amp;ldquo;有公众号和小红书就够了&amp;rdquo;。&lt;/p&gt;
+&lt;p&gt;但事实是——2026 年的今天，全球有超过 6 亿个博客，每天产生 750 万篇新文章，77% 的互联网用户仍然在定期阅读博客。&lt;/p&gt;
+&lt;p&gt;博客从未死过。真正在死的，是那些没有灵魂的博客。&lt;/p&gt;
+</p>
+    
+  </div>
+</article>
+
+    
+    <article class="post-card">
+  
+  <div class="post-card-content">
+    <h2 class="post-card-title">
+      <a href="/post/why-i-revived-gridea/">我为什么复活了 Gridea —— 每个想写点什么的人，都值得一个更简单的开始</a>
+    </h2>
+    <div class="post-card-meta">
+      <time class="post-date">2026-04-18T07:05:45+08:00</time>
+      
+      <span class="post-meta-sep">·</span>
+      
+      <a href="/tag/gridea-pro/" class="post-tag">Gridea Pro</a>
+      
+      <a href="/tag/gridea/" class="post-tag">Gridea</a>
+      
+      
+    </div>
+    
+    <p class="post-card-excerpt">&lt;p&gt;2022 年 5 月 17 日，Gridea 发布了它的最后一个版本 v0.9.3。&lt;/p&gt;
+&lt;p&gt;此后，再也没有更新过。Issues 无人回复，PR 无人合并。一个曾经帮助 28,000 多位用户搭建了自己博客的工具，就这样安静地停在了那里。&lt;/p&gt;
+&lt;p&gt;我是那 28,000 人中的一个。&lt;/p&gt;
+</p>
+    
+  </div>
+</article>
+
+    
+    
+  </div>
+  
+<nav class="pagination">
+  
+
+  <span class="pagination-info">
+    第  /  页
+  </span>
+
+  
+</nav>
+
+
+</div>
+
+      </div>
+      <aside class="sidebar">
+        <div class="sidebar-inner">
+  
+
+  <div class="sidebar-social">
+    
+    
+    
+  </div>
+
+  
+  <div class="sidebar-section">
+    <h4 class="sidebar-title">最新文章</h4>
+    <ul class="recent-posts-list">
+      
+      
+      <li class="recent-post-item">
+        <a href="/post/quick-start/">Gridea Pro 完全上手指南 —— 从写作到发布，一篇搞定</a>
+      </li>
+      
+      
+      
+      <li class="recent-post-item">
+        <a href="/post/why-we-write/">都 2026 年了，我们为什么还要写博客</a>
+      </li>
+      
+      
+      
+      <li class="recent-post-item">
+        <a href="/post/indie-blog-is-not-dead/">独立博客没有死，正在死的是平庸的博客</a>
+      </li>
+      
+      
+      
+      <li class="recent-post-item">
+        <a href="/post/why-i-revived-gridea/">我为什么复活了 Gridea —— 每个想写点什么的人，都值得一个更简单的开始</a>
+      </li>
+      
+      
+    </ul>
+  </div>
+  
+
+  
+  <div class="sidebar-section">
+    <h4 class="sidebar-title">标签云</h4>
+    <div class="tag-cloud">
+      
+      <a href="/tag/gridea/" class="tag-item">Gridea</a>
+      
+      <a href="/tag/gridea-pro/" class="tag-item">Gridea Pro</a>
+      
+      <a href="/tag/getting-started/" class="tag-item">入门</a>
+      
+    </div>
+  </div>
+  
+</div>
+
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-info">
+      <p>&copy; 2026 Gridea Pro. All rights reserved.</p>
+      <p>Powered by <a href="https://www.gridea.pro" target="_blank">Gridea Pro</a></p>
+    </div>
+  </div>
+</footer>
+
+
+  
+</body>
+</html>

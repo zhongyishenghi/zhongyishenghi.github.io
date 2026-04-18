@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Welcome to Gridea Pro">
+  <title>关于 | Gridea Pro</title>
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="icon" href="/favicon.ico">
+<meta name="description" content="关于我 嗨，我是 __ __ ，一个 __ __ 的人。 坐标深圳，做产品经理第五年。白天画原型，晚上写点乱七八糟的东西。 关于我的博客 我发现自己想的很多事情，不写下来就会忘。写博客不是为了给别人看，是怕将来的自己想不起来现在的自己在想什么。 你能在这里看到什么 技术笔记和踩坑记录 偶尔写点产品思考和读书笔记 一些不">
+</head>
+<body class="fresh-blog">
+  <header class="site-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <a href="https://https://zhongyishenghi.github.io" class="site-logo">
+        
+        <span class="site-name">Gridea Pro</span>
+      </a>
+    </div>
+
+    <nav class="header-nav">
+      
+      
+      <a class="nav-link" href="/">首页</a>
+      
+      <a class="nav-link" href="/post">博客</a>
+      
+      <a class="nav-link" href="/memos">闪念</a>
+      
+      <a class="nav-link" href="/archives">归档</a>
+      
+      <a class="nav-link" href="/tags">标签</a>
+      
+      <a class="nav-link" href="/links">友链</a>
+      
+      <a class="nav-link" href="/post/about">关于</a>
+      
+      
+    </nav>
+
+    <div class="header-right">
+      
+      <button class="search-btn" id="searchBtn" aria-label="搜索">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+      
+    </div>
+  </div>
+</header>
+
+
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-modal">
+    <input type="text" class="search-input" id="searchInput" placeholder="搜索文章...">
+    <div class="search-results" id="searchResults"></div>
+    <button class="search-close" id="searchClose">×</button>
+  </div>
+</div>
+
+
+<script>
+(function(){
+  var overlay = document.getElementById('searchOverlay');
+  var btn = document.getElementById('searchBtn');
+  var closeBtn = document.getElementById('searchClose');
+  var input = document.getElementById('searchInput');
+
+  if (!overlay || !btn || !closeBtn || !input) return;
+
+  btn.addEventListener('click', function(){
+    overlay.classList.add('active');
+    input.focus();
+  });
+
+  closeBtn.addEventListener('click', function(){
+    overlay.classList.remove('active');
+  });
+
+  overlay.addEventListener('click', function(e){
+    if (e.target === overlay) {
+      overlay.classList.remove('active');
+    }
+  });
+
+  var lastQuery = '';
+  input.addEventListener('input', function(){
+    var query = input.value.trim();
+    if (query === lastQuery) return;
+    lastQuery = query;
+    var results = document.getElementById('searchResults');
+    if (!query) {
+      results.innerHTML = '';
+      return;
+    }
+    results.innerHTML = '<p class="search-hint">正在加载...</p>';
+    fetch('/api/search.json')
+      .then(function(r){ return r.json(); })
+      .then(function(posts){
+        var matched = posts.filter(function(p){
+          return p.title.indexOf(query) > -1 || (p.content && p.content.indexOf(query) > -1);
+        });
+        if (matched.length === 0) {
+          results.innerHTML = '<p class="search-hint">没有找到相关文章</p>';
+          return;
+        }
+        results.innerHTML = matched.slice(0, 10).map(function(p){
+          var excerpt = p.content ? p.content.replace(/<[^>]+>/g, '').substring(0, 100) + '...' : '';
+          return '<a href="' + p.link + '" class="search-result-item"><h3>' + p.title + '</h3><p>' + excerpt + '</p></a>';
+        }).join('');
+      })
+      .catch(function(){
+        results.innerHTML = '<p class="search-hint">搜索加载失败</p>';
+      });
+  });
+})();
+</script>
+
+
+  <main class="main-container">
+    <div class="content-wrapper">
+      <div class="main-content">
+        
+<div class="about-page">
+  <h1 class="page-title">关于</h1>
+  <div class="about-content">
+    <!-- 这是一个关于页面的模板，你可以根据自己的风格随意修改。开始写你自己的故事吧。 -->
+<h3 id="heading">关于我</h3>
+<p>嗨，我是 __ __ ，一个 __ __ 的人。</p>
+<p>坐标深圳，做产品经理第五年。白天画原型，晚上写点乱七八糟的东西。</p>
+<!-- 用你自己的方式介绍自己。可以是一句话，也可以是一段故事。
+比如：
+
+「一个写了八年代码的后端工程师，最近开始对设计产生了兴趣。」
+
+「坐标深圳，做产品经理第五年。白天画原型，晚上写点乱七八糟的东西。」
+
+「自由职业者，养了两只猫，正在学习用文字把日子过得更清楚一些。」
+
+不需要很正式，用你平时说话的语气就好。 -->
+<h3 id="heading-1">关于我的博客</h3>
+<p>我发现自己想的很多事情，不写下来就会忘。写博客不是为了给别人看，是怕将来的自己想不起来现在的自己在想什么。</p>
+<!-- 这部分往往是关于页面里最打动人的部分。也可以换成你自己的版本，比如：
+
+「工作中踩过太多坑了，每次都想着"下次一定记下来"，然后下次又忘了。这个博客就是那个"下次"。」
+
+「没什么特别的原因，就是想在互联网上有一个属于自己的小角落。」 -->
+<h3 id="heading-2">你能在这里看到什么</h3>
+<ul>
+<li>技术笔记和踩坑记录</li>
+<li>偶尔写点产品思考和读书笔记</li>
+<li>一些不知道该归到哪一类的碎碎念</li>
+</ul>
+<!-- 改成你自己打算写的方向就好 -->
+<h3 id="heading-3">找到我</h3>
+<ul>
+<li>GitHub: <a href="https://github.com/your-username">your-username</a></li>
+<li>Email: <a href="mailto:your@email.com">your@email.com</a></li>
+</ul>
+<!-- 换成你自己的链接，也可以加上 Twitter、掘金、知乎、微信公众号等 -->
+<hr />
+<p>本站使用 <a href="https://www.gridea.pro/">Gridea Pro</a> 搭建。</p>
+
+  </div>
+</div>
+
+      </div>
+      <aside class="sidebar">
+        <div class="sidebar-inner">
+  
+
+  <div class="sidebar-social">
+    
+    
+    
+  </div>
+
+  
+  <div class="sidebar-section">
+    <h4 class="sidebar-title">最新文章</h4>
+    <ul class="recent-posts-list">
+      
+      
+      <li class="recent-post-item">
+        <a href="/post/SFctZm/">只因为有人站在鸭绿江边，</a>
+      </li>
+      
+      
+      
+      <li class="recent-post-item">
+        <a href="/post/RuDtCV/">只因为有人站在鸭绿江边，</a>
+      </li>
+      
+      
+      
+      <li class="recent-post-item">
+        <a href="/post/uz9SqW/">会计师大会</a>
+      </li>
+      
+      
+      
+      <li class="recent-post-item">
+        <a href="/post/2JySRL/">人们从很早开始就不</a>
+      </li>
+      
+      
+      
+      <li class="recent-post-item">
+        <a href="/post/quick-start/">Gridea Pro 完全上手指南 —— 从写作到发布，一篇搞定</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  
+
+  
+  <div class="sidebar-section">
+    <h4 class="sidebar-title">标签云</h4>
+    <div class="tag-cloud">
+      
+      <a href="/tag/gridea/" class="tag-item">Gridea</a>
+      
+      <a href="/tag/gridea-pro/" class="tag-item">Gridea Pro</a>
+      
+      <a href="/tag/getting-started/" class="tag-item">入门</a>
+      
+    </div>
+  </div>
+  
+</div>
+
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-info">
+      <p>&copy; 2026 Gridea Pro. All rights reserved.</p>
+      <p>Powered by <a href="https://www.gridea.pro" target="_blank">Gridea Pro</a></p>
+    </div>
+  </div>
+</footer>
+
+
+  
+</body>
+</html>

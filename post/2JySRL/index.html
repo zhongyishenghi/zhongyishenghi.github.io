@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Welcome to Gridea Pro">
+  <title>人们从很早开始就不 | Gridea Pro</title>
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="icon" href="/favicon.ico">
+<meta name="description" content="据说，在朝鲜人心中，世界上最好的三个城市排名如下： 第3名：北京 人们从很早开始就不断听到关于它的描述：宏大的、先进的、繁荣的。这些信息来自课本、广播、叙述、他人的讲述。它们稳定、重复、权威。 虽然没有亲自去过，但很容易得出结论：那里一定很好。 第2名：平壤 平壤不仅被描述为好，身为首都，意味着集中、意味着代表、意味着">
+</head>
+<body class="fresh-blog">
+  <header class="site-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <a href="https://https://zhongyishenghi.github.io" class="site-logo">
+        
+        <span class="site-name">Gridea Pro</span>
+      </a>
+    </div>
+
+    <nav class="header-nav">
+      
+      
+      <a class="nav-link" href="/">首页</a>
+      
+      <a class="nav-link" href="/post">博客</a>
+      
+      <a class="nav-link" href="/memos">闪念</a>
+      
+      <a class="nav-link" href="/archives">归档</a>
+      
+      <a class="nav-link" href="/tags">标签</a>
+      
+      <a class="nav-link" href="/links">友链</a>
+      
+      <a class="nav-link" href="/post/about">关于</a>
+      
+      
+    </nav>
+
+    <div class="header-right">
+      
+      <button class="search-btn" id="searchBtn" aria-label="搜索">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+      
+    </div>
+  </div>
+</header>
+
+
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-modal">
+    <input type="text" class="search-input" id="searchInput" placeholder="搜索文章...">
+    <div class="search-results" id="searchResults"></div>
+    <button class="search-close" id="searchClose">×</button>
+  </div>
+</div>
+
+
+<script>
+(function(){
+  var overlay = document.getElementById('searchOverlay');
+  var btn = document.getElementById('searchBtn');
+  var closeBtn = document.getElementById('searchClose');
+  var input = document.getElementById('searchInput');
+
+  if (!overlay || !btn || !closeBtn || !input) return;
+
+  btn.addEventListener('click', function(){
+    overlay.classList.add('active');
+    input.focus();
+  });
+
+  closeBtn.addEventListener('click', function(){
+    overlay.classList.remove('active');
+  });
+
+  overlay.addEventListener('click', function(e){
+    if (e.target === overlay) {
+      overlay.classList.remove('active');
+    }
+  });
+
+  var lastQuery = '';
+  input.addEventListener('input', function(){
+    var query = input.value.trim();
+    if (query === lastQuery) return;
+    lastQuery = query;
+    var results = document.getElementById('searchResults');
+    if (!query) {
+      results.innerHTML = '';
+      return;
+    }
+    results.innerHTML = '<p class="search-hint">正在加载...</p>';
+    fetch('/api/search.json')
+      .then(function(r){ return r.json(); })
+      .then(function(posts){
+        var matched = posts.filter(function(p){
+          return p.title.indexOf(query) > -1 || (p.content && p.content.indexOf(query) > -1);
+        });
+        if (matched.length === 0) {
+          results.innerHTML = '<p class="search-hint">没有找到相关文章</p>';
+          return;
+        }
+        results.innerHTML = matched.slice(0, 10).map(function(p){
+          var excerpt = p.content ? p.content.replace(/<[^>]+>/g, '').substring(0, 100) + '...' : '';
+          return '<a href="' + p.link + '" class="search-result-item"><h3>' + p.title + '</h3><p>' + excerpt + '</p></a>';
+        }).join('');
+      })
+      .catch(function(){
+        results.innerHTML = '<p class="search-hint">搜索加载失败</p>';
+      });
+  });
+})();
+</script>
+
+
+  <main class="main-container">
+    <div class="content-wrapper">
+      <div class="main-content">
+        
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">人们从很早开始就不</h1>
+    <div class="post-meta">
+      <time class="post-date">2026-04-18T21:11:03+08:00</time>
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    <p>据说，在朝鲜人心中，世界上最好的三个城市排名如下：</p>
+<p>第3名：北京<br />
+人们从很早开始就不断听到关于它的描述：宏大的、先进的、繁荣的。这些信息来自课本、广播、叙述、他人的讲述。它们稳定、重复、权威。</p>
+<p>虽然没有亲自去过，但很容易得出结论：那里一定很好。</p>
+<p>第2名：平壤<br />
+平壤不仅被描述为好，身为首都，意味着集中、意味着代表、意味着“应该是很好的样子”。</p>
+<p>即便没有切身体验，既然是首都，那它必须是一个比北京还要好的城市。</p>
+<p>第1名：丹东<br />
+只因为有人站在鸭绿江边，看见了一江之隔的丹东，夜晚的灯光，街道上的繁华，那些无需解释、也无法被完全掩饰的细节。</p>
+<p>丹东一定是世界上最好的城市。亲眼看见的那一刻，不需要再推理，也不需要再相信谁。</p>
+<p>PS 本故事纯属虚构。</p>
+
+  </div>
+
+  <nav class="post-nav">
+    
+    <a href="/post/uz9SqW/" class="post-nav-link post-nav-prev">
+      <span class="nav-label">← 上一篇</span>
+      <span class="nav-title">会计师大会</span>
+    </a>
+    
+    
+    <a href="/post/quick-start/" class="post-nav-link post-nav-next">
+      <span class="nav-label">下一篇 →</span>
+      <span class="nav-title">Gridea Pro 完全上手指南 —— 从写作到发布，一篇搞定</span>
+    </a>
+    
+  </nav>
+</article>
+
+      </div>
+      <aside class="sidebar">
+        <div class="sidebar-inner">
+  
+
+  <div class="sidebar-social">
+    
+    
+    
+  </div>
+
+  
+  <div class="sidebar-section">
+    <h4 class="sidebar-title">最新文章</h4>
+    <ul class="recent-posts-list">
+      
+      
+      <li class="recent-post-item">
+        <a href="/post/SFctZm/">只因为有人站在鸭绿江边，</a>
+      </li>
+      
+      
+      
+      <li class="recent-post-item">
+        <a href="/post/RuDtCV/">只因为有人站在鸭绿江边，</a>
+      </li>
+      
+      
+      
+      <li class="recent-post-item">
+        <a href="/post/uz9SqW/">会计师大会</a>
+      </li>
+      
+      
+      
+      <li class="recent-post-item">
+        <a href="/post/2JySRL/">人们从很早开始就不</a>
+      </li>
+      
+      
+      
+      <li class="recent-post-item">
+        <a href="/post/quick-start/">Gridea Pro 完全上手指南 —— 从写作到发布，一篇搞定</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  
+
+  
+  <div class="sidebar-section">
+    <h4 class="sidebar-title">标签云</h4>
+    <div class="tag-cloud">
+      
+      <a href="/tag/gridea/" class="tag-item">Gridea</a>
+      
+      <a href="/tag/gridea-pro/" class="tag-item">Gridea Pro</a>
+      
+      <a href="/tag/getting-started/" class="tag-item">入门</a>
+      
+    </div>
+  </div>
+  
+</div>
+
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-info">
+      <p>&copy; 2026 Gridea Pro. All rights reserved.</p>
+      <p>Powered by <a href="https://www.gridea.pro" target="_blank">Gridea Pro</a></p>
+    </div>
+  </div>
+</footer>
+
+
+  
+</body>
+</html>
