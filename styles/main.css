@@ -646,6 +646,15 @@ footer {
     background: rgba(255, 255, 255, 0.2);
 }
 
+/* Hamburger menu - hidden on desktop */
+.menu-toggle {
+    display: none;
+}
+
+.sidebar-overlay {
+    display: none;
+}
+
 .links-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -1061,23 +1070,89 @@ footer {
     }
     
     .sidebar {
-        width: 100%;
-        height: auto;
-        position: static;
-        left: auto;
-        top: auto;
+        width: 280px;
+        height: 100vh;
+        position: fixed;
+        left: 0;
+        top: 0;
         border-right: none;
-        border-bottom: 1px solid var(--border);
-        margin-bottom: 20px;
-        max-height: none;
+        border-radius: 0;
+        z-index: 1001;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        max-height: 100vh;
+        overflow-y: auto;
+        padding-top: 70px;
+    }
+    
+    .sidebar.active {
+        transform: translateX(0);
+    }
+    
+    .sidebar-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .sidebar-overlay.active {
+        display: block;
+        opacity: 1;
+    }
+    
+    .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        backdrop-filter: blur(20px);
+        border: none;
+        border-radius: 14px;
+        cursor: pointer;
+        z-index: 1002;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+        transition: all 0.3s ease;
+    }
+    
+    .menu-toggle i {
+        color: white;
+        font-size: 20px;
+        line-height: 1;
+        transition: transform 0.3s ease;
+    }
+    
+    .menu-toggle:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 25px rgba(102, 126, 234, 0.5);
+    }
+    
+    .menu-toggle.active i {
+        transform: rotate(90deg);
     }
     
     .main-content {
         padding: 0;
+        padding-top: 10px;
     }
     
     .post-grid {
         column-count: 2;
+    }
+    
+    .article-header {
+        margin-top: 60px;
     }
 }
 

@@ -41,7 +41,7 @@
 
 <body>
     <div class="container">
-        <aside class="sidebar">
+        <aside class="sidebar" id="sidebar">
     <div class="logo">
         <h1><a href="/">纸包鱼博客</a></h1>
     </div>
@@ -107,6 +107,12 @@
     
 </aside>
 
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<button class="menu-toggle" id="menuToggle" aria-label="菜单">
+    <i class="fas fa-bars"></i>
+</button>
+
 
         <main class="main-content">
             <header class="article-header">
@@ -114,14 +120,52 @@
                 <div class="article-meta">
                     <span><i class="fas fa-link"></i> 朋友的博客 · 同好的去处</span>
                     
+                    
+                        <span><i class="fas fa-hashtag"></i> 共 1 个链接</span>
+                    
                 </div>
             </header>
 
             
-                <div class="article-content" style="text-align: center; padding: 60px 40px;">
-                    <p style="font-size: 48px; margin-bottom: 20px;">🔗</p>
-                    <p style="font-size: 18px; color: var(--secondary);">暂无友情链接</p>
-                    <p style="font-size: 14px; color: #94a3b8; margin-top: 10px;">在 Gridea Pro 桌面客户端的「友情链接」里添加</p>
+                <div class="links-grid">
+                    
+                        <a class="links-card" href="https://gridea.pro" target="_blank" rel="noopener noreferrer">
+                            <div class="links-card-avatar-wrap">
+                                
+                                    <img class="links-card-avatar" src="https://www.gridea.pro/appicon.png" alt="Gridea Pro" loading="lazy">
+                                
+                            </div>
+                            <div class="links-card-body">
+                                <h3 class="links-card-name">Gridea Pro</h3>
+                                
+                                    <p class="links-card-desc">一个简单而强大的静态博客写作客户端</p>
+                                
+                            </div>
+                            <i class="fas fa-arrow-up-right-from-square links-card-arrow"></i>
+                        </a>
+                    
+                </div>
+
+                <!-- 交换友链 -->
+                <div class="links-exchange">
+                    <div class="links-exchange-content">
+                        <h3><i class="fas fa-handshake"></i> 交换友链</h3>
+                        <p>如果你也想交换友链，请通过 <a href="mailto:your@email.com">邮件</a> 联系我。</p>
+                        <div class="links-exchange-info">
+                            <div class="links-exchange-item">
+                                <span class="links-exchange-label">网站名称：</span>
+                                <span class="links-exchange-value">纸包鱼博客</span>
+                            </div>
+                            <div class="links-exchange-item">
+                                <span class="links-exchange-label">网站地址：</span>
+                                <span class="links-exchange-value">https://zhongyishenghi.github.io</span>
+                            </div>
+                            <div class="links-exchange-item">
+                                <span class="links-exchange-label">网站描述：</span>
+                                <span class="links-exchange-value">用文字记录美好生活！</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             
 
@@ -132,6 +176,33 @@
         本网站为个人非商业性质站点，不保证所提供内容完全合法、准确、完整或可供使用，亦不对所发布材料可能涉及的版权或其他纠纷负责。如有侵权问题，请尽快与我们联系删除。
     
 </footer>
+
+<script>
+(function() {
+    var menuToggle = document.getElementById('menuToggle');
+    var sidebar = document.getElementById('sidebar');
+    var overlay = document.getElementById('sidebarOverlay');
+    if (menuToggle && sidebar && overlay) {
+        menuToggle.addEventListener('click', function() {
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+        overlay.addEventListener('click', function() {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            menuToggle.classList.remove('active');
+        });
+        sidebar.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+    }
+})();
+</script>
 
 
 

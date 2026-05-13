@@ -41,7 +41,7 @@
 
 <body>
     <div class="container">
-        <aside class="sidebar">
+        <aside class="sidebar" id="sidebar">
     <div class="logo">
         <h1><a href="/">纸包鱼博客</a></h1>
     </div>
@@ -107,12 +107,18 @@
     
 </aside>
 
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<button class="menu-toggle" id="menuToggle" aria-label="菜单">
+    <i class="fas fa-bars"></i>
+</button>
+
 
         <main class="main-content">
             <header class="article-header">
                 <h1 class="article-title">标签: Gridea</h1>
                 <div class="article-meta">
-                    <span><i class="fas fa-folder"></i> 共 1 篇文章</span>
+                    <span><i class="fas fa-folder"></i> 共 2 篇文章</span>
                 </div>
             </header>
 
@@ -121,7 +127,37 @@
                 <article class="post-card">
                     <div class="post-thumbnail-wrapper">
                         
-                            <img src="https://picsum.photos/600/400?random=419" alt="我为什么复活了 Gridea —— 每个想写点什么的人，都值得一个更简单的开始" class="post-thumbnail">
+                            <img src="https://picsum.photos/600/400?random=109" alt="Gridea Pro 模板开发指南" class="post-thumbnail">
+                        
+                        
+                            <span class="post-category">Gridea Pro</span>
+                        
+                    </div>
+                    <div class="post-content">
+                        <h2 class="post-title"><a href="/post/uz9SqW/">Gridea Pro 模板开发指南</a></h2>
+                        <p class="post-excerpt"></p>
+                        <div class="post-meta">
+                            <span><i class="fas fa-calendar"></i> 2026-04-18</span>
+                        </div>
+                        
+                        <div class="tag-cloud" style="margin-top: 12px;">
+                            
+                                <a href="/tag/gridea-pro/">Gridea Pro</a>
+                            
+                                <a href="/tag/gridea/">Gridea</a>
+                            
+                                <a href="/tag/getting-started/">入门</a>
+                            
+                        </div>
+                        
+                    </div>
+                    <a href="/post/uz9SqW/" class="read-btn">阅读文章</a>
+                </article>
+                
+                <article class="post-card">
+                    <div class="post-thumbnail-wrapper">
+                        
+                            <img src="https://picsum.photos/600/400?random=578" alt="我为什么复活了 Gridea —— 每个想写点什么的人，都值得一个更简单的开始" class="post-thumbnail">
                         
                         
                             <span class="post-category">Gridea Pro</span>
@@ -162,6 +198,33 @@
         本网站为个人非商业性质站点，不保证所提供内容完全合法、准确、完整或可供使用，亦不对所发布材料可能涉及的版权或其他纠纷负责。如有侵权问题，请尽快与我们联系删除。
     
 </footer>
+
+<script>
+(function() {
+    var menuToggle = document.getElementById('menuToggle');
+    var sidebar = document.getElementById('sidebar');
+    var overlay = document.getElementById('sidebarOverlay');
+    if (menuToggle && sidebar && overlay) {
+        menuToggle.addEventListener('click', function() {
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+        overlay.addEventListener('click', function() {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            menuToggle.classList.remove('active');
+        });
+        sidebar.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+    }
+})();
+</script>
 
 
 

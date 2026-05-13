@@ -42,7 +42,7 @@
 
 <body>
     <div class="container">
-        <aside class="sidebar">
+        <aside class="sidebar" id="sidebar">
     <div class="logo">
         <h1><a href="/">纸包鱼博客</a></h1>
     </div>
@@ -107,6 +107,12 @@
     </div>
     
 </aside>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<button class="menu-toggle" id="menuToggle" aria-label="菜单">
+    <i class="fas fa-bars"></i>
+</button>
 
 
         <main class="main-content">
@@ -248,6 +254,33 @@
         本网站为个人非商业性质站点，不保证所提供内容完全合法、准确、完整或可供使用，亦不对所发布材料可能涉及的版权或其他纠纷负责。如有侵权问题，请尽快与我们联系删除。
     
 </footer>
+
+<script>
+(function() {
+    var menuToggle = document.getElementById('menuToggle');
+    var sidebar = document.getElementById('sidebar');
+    var overlay = document.getElementById('sidebarOverlay');
+    if (menuToggle && sidebar && overlay) {
+        menuToggle.addEventListener('click', function() {
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+        overlay.addEventListener('click', function() {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            menuToggle.classList.remove('active');
+        });
+        sidebar.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+    }
+})();
+</script>
 
 
 
