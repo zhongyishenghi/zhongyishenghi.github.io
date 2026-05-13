@@ -6,7 +6,7 @@
     <description>用文字记录美好生活！</description>
     <language>zh-cn</language>
     <generator>Gridea Pro</generator>
-    <lastBuildDate>Sat, 18 Apr 2026 21:26:57 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 13 May 2026 20:04:46 +0800</lastBuildDate>
     <atom:link href="https://zhongyishenghi.github.io/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <item>
       <title>blog</title>
@@ -25,12 +25,61 @@
 ]]></description>
     </item>
     <item>
-      <title>只因为有人站在鸭绿江边，</title>
+      <title>GitHub Pages 绑定自定义域名指南</title>
       <link>https://zhongyishenghi.github.io/post/SFctZm/</link>
       <guid isPermaLink="true">https://zhongyishenghi.github.io/post/SFctZm/</guid>
       <pubDate>Sat, 18 Apr 2026 21:20:46 +0800</pubDate>
-      <description><![CDATA[<p>只因为有人站在鸭绿江边，只因为有人站在鸭绿江边，只因为有人站在鸭绿江边，只因为有人站在鸭绿江边，只因为有人站在鸭绿江边，只因为有人站在鸭绿江边，只因为有人站在鸭绿江边，只因为有人站在鸭绿江边，只因为有人站在鸭绿江边，只因为有人站在鸭绿江边，只因为有人站在鸭绿江边，只因为有人站在鸭绿江边，只因为有人站在鸭绿江边，只因为有人站在鸭绿江边，只因为有人站在鸭绿江边，只因为有人站在鸭绿江边，只因为有人站在鸭绿江边，只因为有人站在鸭绿江边，只因为有人站在鸭绿江边，只因为有人站在鸭绿江边，只因为有人站在鸭绿江边，只因为有人站在鸭绿江边，只因为有人站在鸭绿江边，只因为有人站在鸭绿江边，只因为有人站在鸭绿江边，只因为有人站在鸭绿江边，只因为有人站在鸭绿江边，只因为有人站在鸭绿江边，只因为有人站在鸭绿江边，只因为有人站在鸭绿江边，只因为有人站在鸭绿江边，只因为有人站在鸭绿江边，只因为有人站在鸭绿江边，</p>
+      <description><![CDATA[<p>本文档记录了将自定义域名（如从西部数码购买的域名）绑定到 GitHub Pages 静态网站的操作步骤。</p>
+<h2 id="heading">一、前提条件</h2>
+<ol>
+<li>拥有一个已部署成功的 GitHub Pages 仓库（公开仓库）。</li>
+<li>拥有一个已购买的自定义域名，且拥有该域名服务商的 DNS 管理权限。</li>
+</ol>
+<h2 id="-github-">二、在 GitHub 仓库中配置自定义域名</h2>
+<ol>
+<li>进入你的 GitHub 仓库，点击顶部的 <strong>Settings（设置）</strong>。</li>
+<li>在左侧边栏的“Code and automation”分类下，点击 <strong>Pages</strong>。</li>
+<li>在 <strong>Custom domain</strong> 输入框中，填写你的自定义域名（例如 <code>example.com</code> 或 <code>www.example.com</code>）。</li>
+<li>点击 <strong>Save</strong> 保存。
+<ul>
+<li>若你的仓库是从分支（branch）发布的，GitHub 会自动在仓库根目录生成一个 <code>CNAME</code> 文件；若使用 GitHub Actions 工作流发布，则需手动在根目录创建 <code>CNAME</code> 文件，内容仅为你的自定义域名。</li>
+</ul>
+</li>
+</ol>
+<h2 id="-dns-">三、在域名服务商处配置 DNS 解析</h2>
+<p>登录你的域名服务商（如西部数码）管理后台，找到域名解析/DNS 管理，按以下场景添加记录：</p>
+<h3 id="-a-examplecom">场景 A：绑定根域名（如 example.com）</h3>
+<p>添加 <strong>4 条 A 记录</strong>，主机记录（Host/Name）填 <code>@</code>，分别对应 GitHub Pages 的 4 个 IP 地址：</p>
+<ul>
+<li><code>185.199.108.153</code></li>
+<li><code>185.199.109.153</code></li>
+<li><code>185.199.110.153</code></li>
+<li><code>185.199.111.153</code></li>
+</ul>
+<h3 id="-b-wwwexamplecom--blogexamplecom">场景 B：绑定子域名（如 <a href="http://www.example.com">www.example.com</a> 或 blog.example.com）</h3>
+<p>添加 <strong>1 条 CNAME 记录</strong>：</p>
+<ul>
+<li>主机记录（Host/Name）填子域名前缀（如 <code>www</code> 或 <code>blog</code>）</li>
+<li>记录值（Value/CNAME）填你的 GitHub Pages 默认域名：<code>你的用户名.github.io</code></li>
+</ul>
+<blockquote>
+<p>注：如果你希望同时支持根域名和 www 域名，且让 www 自动跳转到根域名，只需同时配置上述 A 记录（@）和 CNAME 记录（www），并在 GitHub Pages 的 Custom domain 中填写根域名即可，GitHub 会自动处理跳转。</p>
+</blockquote>
+<h2 id="-httpsssl-">四、开启 HTTPS（SSL 证书）</h2>
+<ol>
+<li>在 GitHub 仓库的 <strong>Settings -&gt; Pages</strong> 页面，等待 DNS 检查通过后。</li>
+<li>勾选 <strong>Enforce HTTPS</strong> 选项。</li>
+<li>GitHub 会自动向 Let&rsquo;s Encrypt 申请并部署免费的 SSL 证书，通常几分钟到几小时生效。</li>
+</ol>
+<h2 id="heading-1">五、注意事项</h2>
+<ul>
+<li>DNS 解析全球生效通常有延迟（几分钟至 48 小时），若刚配置完无法访问，请先耐心等待。</li>
+<li>确保自定义域名在全站资源（如 CSS、JS 引用）中使用相对路径或正确绝对路径，避免混合内容（HTTP/HTTPS）报错。</li>
+<li>若使用静态站点生成器（如 VuePress、VitePress、Hexo 等），请注意配置正确的 <code>base</code> 路径（尤其是项目站点，非用户名.github.io 仓库）。</li>
+</ul>
 ]]></description>
+      <category>github</category>
+      <category>入门</category>
     </item>
     <item>
       <title>OneBlog - Gridea Pro 主题简介</title>
@@ -913,7 +962,7 @@
 <li>分页对象通过 <code>pagination</code> 变量访问</li>
 <li>使用 <code>&lt;%- %&gt;</code> 输出 HTML 内容，使用 <code>&lt;%= %&gt;</code> 输出转义文本</li>
 </ol>
-]]></description>
+<!-- more -->]]></description>
       <category>Gridea Pro</category>
       <category>Gridea</category>
       <category>入门</category>
