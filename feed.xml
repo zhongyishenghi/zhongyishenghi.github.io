@@ -33,19 +33,380 @@
 ]]></description>
     </item>
     <item>
-      <title>只因为有人站在鸭绿江边，</title>
+      <title>OneBlog - Gridea Pro 主题简介</title>
       <link>https://zhongyishenghi.github.io/post/RuDtCV/</link>
       <guid isPermaLink="true">https://zhongyishenghi.github.io/post/RuDtCV/</guid>
       <pubDate>Sat, 18 Apr 2026 21:11:57 +0800</pubDate>
-      <description><![CDATA[<p>们从很早开始就不断听到关于它的描述：宏大的、先进的、繁荣的。这些信息来自课本、广播、叙述、他人的讲述。它们稳定、重复、权威。</p>
-<p>虽然没有亲自去过，但很容易得出结论：那里一定很好。</p>
-<p>第2名：平壤<br />
-平壤不仅被描述为好，身为首都，意味着集中、意味着代表、意味着“应该是很好的样子”。</p>
-<p>即便没有切身体验，既然是首都，那它必须是一个比北京还要好的城市。</p>
-<p>第1名：丹东<br />
-只因为有人站在鸭绿江边，看见了一江之隔的丹东，夜晚的灯光，街道上的繁华，那些无需解释、也无法被完全掩饰的细节。</p>
-<p>丹东一定是世界上最好的城市。亲眼看见的那</p>
+      <description><![CDATA[<h1 id="oneblog---gridea-pro-">OneBlog - Gridea Pro 主题</h1>
+<p>高端个人博客主题，侧边栏固定布局，瀑布流文章卡片展示。</p>
+<h2 id="heading">特性</h2>
+<ul>
+<li>侧边栏固定布局，响应式设计</li>
+<li>瀑布流文章卡片展示</li>
+<li>支持特色图片</li>
+<li>标签云和归档页面</li>
+<li>自定义主题色</li>
+<li>闪念页面（含年度热力图）</li>
+<li>友情链接页面</li>
+<li>响应式设计，适配移动端</li>
+</ul>
+<h2 id="heading-1">安装</h2>
+<ol>
+<li>
+<p>将整个 <code>oneblog</code> 文件夹复制到 Gridea Pro 的 themes 目录：</p>
+<pre><code>C:\Users\zhong\Documents\Gridea Pro\themes\oneblog
+</code></pre>
+</li>
+<li>
+<p>打开 Gridea Pro，在主题设置中选择 <code>OneBlog</code></p>
+</li>
+</ol>
+<h2 id="heading-2">配置说明</h2>
+<h3 id="heading-3">基础设置</h3>
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>站点 Logo</td>
+<td>图片上传</td>
+<td>侧边栏头像/站点 Logo，推荐正方形</td>
+</tr>
+<tr>
+<td>作者名称</td>
+<td>文本</td>
+<td>作者/博主名称，留空则使用站点名称</td>
+</tr>
+<tr>
+<td>站点图标 Favicon</td>
+<td>图片上传</td>
+<td>浏览器标签图标，推荐 .ico 或 .png</td>
+</tr>
+<tr>
+<td>页脚信息</td>
+<td>多行文本</td>
+<td>支持 HTML，显示在页脚</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意：</strong> 友情链接请在 Gridea Pro 左侧导航的「友情链接」管理面板中添加，不需要在主题配置中设置。</p>
+<h3 id="heading-4">社交链接</h3>
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GitHub</td>
+<td>文本</td>
+<td>GitHub 完整链接地址</td>
+</tr>
+<tr>
+<td>Twitter</td>
+<td>文本</td>
+<td>Twitter 完整链接地址</td>
+</tr>
+<tr>
+<td>微博</td>
+<td>文本</td>
+<td>微博完整链接地址</td>
+</tr>
+<tr>
+<td>微信</td>
+<td>文本</td>
+<td>微信完整链接地址</td>
+</tr>
+</tbody>
+</table>
+<h3 id="heading-5">外观设置</h3>
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>主题强调色</td>
+<td>文本</td>
+<td>#667eea</td>
+<td>主色调，影响链接、按钮、强调条等</td>
+</tr>
+<tr>
+<td>主题强调色2</td>
+<td>文本</td>
+<td>#764ba2</td>
+<td>渐变色第二个颜色</td>
+</tr>
+<tr>
+<td>显示特色图片</td>
+<td>选择</td>
+<td>显示</td>
+<td>是否在文章卡片和文章详情显示特色图片</td>
+</tr>
+</tbody>
+</table>
+<h3 id="heading-6">高级设置</h3>
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>自定义 CSS</td>
+<td>多行文本</td>
+<td>追加到 &lt;head&gt; 中，覆盖主题默认样式</td>
+</tr>
+<tr>
+<td>自定义 JavaScript</td>
+<td>多行文本</td>
+<td>追加到页面底部</td>
+</tr>
+</tbody>
+</table>
+<h2 id="heading-7">模板文件结构</h2>
+<pre><code>oneblog/
+├── config.json              # 主题配置
+├── README.md                # 说明文档
+├── assets/
+│   ├── styles/
+│   │   └── main.css         # 样式文件
+│   └── media/               # 媒体资源目录
+└── templates/
+    ├── includes/
+    │   ├── head.ejs         # 页面头部
+    │   ├── sidebar.ejs      # 侧边栏
+    │   └── footer.ejs       # 页脚
+    ├── index.ejs            # 首页
+    ├── blog.ejs             # 博客列表页
+    ├── post.ejs             # 文章详情页
+    ├── tags.ejs             # 标签云
+    ├── tag.ejs              # 标签文章列表
+    ├── archives.ejs         # 归档页
+    ├── about.ejs            # 关于页
+    ├── links.ejs            # 友情链接页
+    ├── memos.ejs            # 闪念页
+    └── 404.ejs              # 404 错误页
+</code></pre>
+<h2 id="heading-8">页面说明</h2>
+<h3 id="-">首页 (<code>/</code>)</h3>
+<p>瀑布流文章卡片列表，每篇文章显示缩略图、标题、摘要、日期、阅读量和标签。</p>
+<h3 id="-postslug">文章详情页 (<code>/post/{slug}/</code>)</h3>
+<p>显示文章完整内容，包括标题、元信息（日期、阅读量、标签）、正文、标签、上一篇/下一篇导航。</p>
+<h3 id="-tags">标签云 (<code>/tags/</code>)</h3>
+<p>展示所有文章标签及其文章数量，点击可跳转到对应标签的文章列表。</p>
+<h3 id="-tagtag">标签文章列表 (<code>/tag/{tag}/</code>)</h3>
+<p>展示指定标签下的所有文章。</p>
+<h3 id="-archives">归档页 (<code>/archives/</code>)</h3>
+<p>按时间线展示所有文章。</p>
+<h3 id="-memos">闪念页 (<code>/memos/</code>)</h3>
+<p>展示短文/灵感/片段，包含年度热力图和分页功能。</p>
+<h3 id="-links">友情链接页 (<code>/links/</code>)</h3>
+<p>展示友情链接列表，包含交换友链信息。</p>
+<h3 id="-postabout">关于页 (<code>/post/about/</code>)</h3>
+<p>展示关于页面内容（需要在 Gridea Pro 中创建 about 文章）。</p>
+<h3 id="404-">404 页面</h3>
+<p>当访问不存在的页面时显示。</p>
+<h2 id="heading-9">可用变量</h2>
+<h3 id="heading-10">全局变量</h3>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>site</code></td>
+<td>站点配置信息</td>
+</tr>
+<tr>
+<td><code>site.customConfig</code></td>
+<td>主题自定义配置</td>
+</tr>
+<tr>
+<td><code>themeConfig</code></td>
+<td>主题配置（站点名称、描述等）</td>
+</tr>
+<tr>
+<td><code>themeConfig.siteName</code></td>
+<td>站点名称</td>
+</tr>
+<tr>
+<td><code>themeConfig.siteDescription</code></td>
+<td>站点描述</td>
+</tr>
+<tr>
+<td><code>themeConfig.domain</code></td>
+<td>站点域名</td>
+</tr>
+<tr>
+<td><code>themeConfig.footerInfo</code></td>
+<td>页脚信息</td>
+</tr>
+<tr>
+<td><code>menus</code></td>
+<td>导航菜单</td>
+</tr>
+<tr>
+<td><code>tags</code></td>
+<td>标签列表</td>
+</tr>
+</tbody>
+</table>
+<h3 id="heading-11">文章变量</h3>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>post.title</code></td>
+<td>文章标题</td>
+</tr>
+<tr>
+<td><code>post.link</code></td>
+<td>文章链接</td>
+</tr>
+<tr>
+<td><code>post.content</code></td>
+<td>文章内容</td>
+</tr>
+<tr>
+<td><code>post.brief</code></td>
+<td>文章摘要</td>
+</tr>
+<tr>
+<td><code>post.dateFormat</code></td>
+<td>格式化日期</td>
+</tr>
+<tr>
+<td><code>post.feature</code></td>
+<td>特色图片</td>
+</tr>
+<tr>
+<td><code>post.tags</code></td>
+<td>文章标签</td>
+</tr>
+<tr>
+<td><code>post.prevPost</code></td>
+<td>上一篇文章</td>
+</tr>
+<tr>
+<td><code>post.nextPost</code></td>
+<td>下一篇文章</td>
+</tr>
+<tr>
+<td><code>post.stats</code></td>
+<td>文章统计信息</td>
+</tr>
+</tbody>
+</table>
+<h3 id="heading-12">分页变量</h3>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pagination.prev</code></td>
+<td>上一页链接</td>
+</tr>
+<tr>
+<td><code>pagination.next</code></td>
+<td>下一页链接</td>
+</tr>
+</tbody>
+</table>
+<h3 id="heading-13">友链变量</h3>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>site.customConfig.links</code></td>
+<td>友情链接列表</td>
+</tr>
+<tr>
+<td><code>link.url</code> / <code>link.siteLink</code></td>
+<td>友链地址</td>
+</tr>
+<tr>
+<td><code>link.name</code> / <code>link.siteName</code></td>
+<td>友链名称</td>
+</tr>
+<tr>
+<td><code>link.avatar</code></td>
+<td>友链头像</td>
+</tr>
+<tr>
+<td><code>link.description</code></td>
+<td>友链描述</td>
+</tr>
+</tbody>
+</table>
+<h3 id="heading-14">闪念变量</h3>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>memos</code></td>
+<td>闪念列表</td>
+</tr>
+<tr>
+<td><code>memo.content</code></td>
+<td>闪念内容</td>
+</tr>
+<tr>
+<td><code>memo.createdAt</code></td>
+<td>创建时间</td>
+</tr>
+<tr>
+<td><code>memo.tags</code></td>
+<td>闪念标签</td>
+</tr>
+</tbody>
+</table>
+<h2 id="heading-15">许可</h2>
+<p>MIT License</p>
+<p>主题预览请看本博客。</p>
 ]]></description>
+      <category>Gridea Pro</category>
+      <category>Gridea</category>
+      <category>入门</category>
+      <enclosure url="https://zhongyishenghi.github.io/post-images/RuDtCV.png" length="0" type="image/png"></enclosure>
     </item>
     <item>
       <title>Gridea Pro 模板开发指南</title>
