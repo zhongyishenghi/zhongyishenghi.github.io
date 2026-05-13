@@ -63,7 +63,8 @@
 <li>记录值（Value/CNAME）填你的 GitHub Pages 默认域名：<code>你的用户名.github.io</code></li>
 </ul>
 <blockquote>
-<p>注：如果你希望同时支持根域名和 www 域名，且让 www 自动跳转到根域名，只需同时配置上述 A 记录（@）和 CNAME 记录（www），并在 GitHub Pages 的 Custom domain 中填写根域名即可，GitHub 会自动处理跳转。</p>
+<p>注：如果你希望同时支持根域名和 www 域名，且让 www 自动跳转到根域名，只需同时配置上述 A 记录（@）和 CNAME 记录（www），并在 GitHub Pages 的 Custom domain 中填写根域名即可，GitHub 会自动处理跳转。<br />
+<img src="https://zby365.com/post-images/1778683122384486300_0.png" alt="" /></p>
 </blockquote>
 <h2 id="-httpsssl-">四、开启 HTTPS（SSL 证书）</h2>
 <ol>
@@ -80,6 +81,7 @@
 ]]></description>
       <category>github</category>
       <category>入门</category>
+      <enclosure url="https://zby365.com/post-images/SFctZm.png" length="0" type="image/png"></enclosure>
     </item>
     <item>
       <title>OneBlog - Gridea Pro 主题简介</title>
